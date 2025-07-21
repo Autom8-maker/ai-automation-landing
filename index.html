@@ -1,0 +1,150 @@
+<!-- START OF HTML (copy everything between <html> and </html>) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Automation Services | Allen Collective</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f1f5f9; color: #1f2937; }
+    header {
+      background: linear-gradient(to right, #0f172a, #1d4ed8);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      background-image: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d3?auto=format&fit=crop&w=1650&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      transition: background-size 0.5s ease;
+    }
+    header:hover { background-size: 105%; }
+    header::before {
+      content: ''; position: absolute; inset: 0; background: rgba(15, 23, 42, 0.7);
+    }
+    header > * { position: relative; z-index: 1; }
+    header h1 { font-size: 2.8rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; opacity: 0.95; }
+    .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
+    section { margin-bottom: 60px; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease forwards; animation-delay: 0.2s; }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    h2 { font-size: 2rem; color: #1d4ed8; border-left: 6px solid #1d4ed8; padding-left: 15px; margin-bottom: 20px; }
+    ul { list-style: none; padding-left: 0; }
+    li { padding: 10px 0; }
+    li strong { color: #0f172a; }
+    table {
+      width: 100%; border-collapse: collapse; margin-top: 20px;
+      background-color: white; border-radius: 10px;
+      overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    th, td { padding: 20px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    th { background-color: #eff6ff; color: #1e3a8a; font-weight: 600; white-space: nowrap; }
+    tr:last-child td { border-bottom: none; }
+    .cta {
+      background: linear-gradient(to right, #1d4ed8, #3b82f6); color: white;
+      padding: 50px; text-align: center; border-radius: 12px;
+      font-size: 1.4rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .cta:hover { transform: translateY(-5px); }
+    .branding {
+      text-align: center; padding: 30px 0;
+      font-weight: 600; color: #64748b; font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Done-For-You AI Automation</h1>
+    <p>Automate repetitive tasks and scale your operations with smart, personalized workflows.</p>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Our Offer</h2>
+      <p>From client onboarding and scheduling to document collection and email follow-ups, we automate your business's most time-consuming processes using tools like Zapier, Activepieces, and n8n.</p>
+    </section>
+
+    <section>
+      <h2>Benefits</h2>
+      <ul>
+        <li>💼 Save 10+ hours weekly with streamlined operations</li>
+        <li>📩 Automate everything from intake forms to file uploads</li>
+        <li>✅ Reduce costly errors with consistent, rule-based workflows</li>
+        <li>🧠 AI-powered logic ensures every task runs smoothly</li>
+        <li>🔧 Done-for-you setup — no tech background required</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Who We Serve</h2>
+      <ul>
+        <li>✅ Bookkeepers & Tax Professionals</li>
+        <li>🏡 Real Estate Teams</li>
+        <li>🩺 Medical & Wellness Practices</li>
+        <li>🔧 Home Service Providers</li>
+        <li>⚖️ Law Firms & Solo Attorneys</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Pricing Plans</h2>
+      <table>
+        <tr>
+          <th>Tier</th>
+          <th>Platform</th>
+          <th>Target Client</th>
+          <th>Use Cases</th>
+          <th>Price</th>
+          <th>Deliverables</th>
+        </tr>
+        <tr>
+          <td><strong>Starter</strong></td>
+          <td>Zapier</td>
+          <td>Small businesses, solopreneurs</td>
+          <td>Lead capture, CRM updates, email automation</td>
+          <td><strong>Setup:</strong> $250–$500<br><strong>Monthly:</strong> $50–$100</td>
+          <td><ul><li>2–5 Zaps</li><li>Up to 3 apps</li><li>Basic logic (filters, delays)</li><li>Email support</li></ul></td>
+        </tr>
+        <tr>
+          <td><strong>Growth</strong></td>
+          <td>Activepieces</td>
+          <td>Growing businesses, agencies</td>
+          <td>Form processing, multi-step automation, task handoffs</td>
+          <td><strong>Setup:</strong> $500–$1,000<br><strong>Monthly:</strong> $150–$300</td>
+          <td><ul><li>3–8 flows</li><li>3–6 apps</li><li>Conditional logic</li><li>File handling</li><li>Monthly reporting</li></ul></td>
+        </tr>
+        <tr>
+          <td><strong>Custom Pro</strong></td>
+          <td>n8n</td>
+          <td>Mid-size+ companies</td>
+          <td>Onboarding systems, accounting automations, real estate scrapers</td>
+          <td><strong>Setup:</strong> $1,500–$5,000+<br><strong>Monthly:</strong> $400–$1,000+</td>
+          <td><ul><li>Fully custom workflows</li><li>API & database integrations</li><li>Secure file uploads</li><li>On-call support</li></ul></td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Optional Add-Ons</h2>
+      <ul>
+        <li>🪪 Custom-branded upload portal: <strong>+$100</strong></li>
+        <li>🤖 AI chatbot integration: <strong>+$250–$500</strong></li>
+        <li>🚨 Emergency support & fast-track fixes: <strong>+$100/mo</strong></li>
+      </ul>
+    </section>
+
+    <div class="cta">
+      <p>Ready to reclaim your time? Text <strong>\"AUTOMATE\"</strong> to <strong>(863) 738-4441</strong> and let us handle the rest.</p>
+    </div>
+  </div>
+
+  <footer class="branding">
+    &copy; 2025 Allen Collective Enterprises LLC. All rights reserved.
+  </footer>
+</body>
+</html>
+
