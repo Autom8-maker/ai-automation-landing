@@ -52,12 +52,18 @@
     <!-- Placeholder Brand (Hidden as requested) -->
     <div class="text-white text-xl font-bold hidden">Allen Collective</div>
 
-    <!-- Desktop Links -->
-    <div class="hidden md:flex space-x-8 items-center">
-      <a href="#" onclick="showSection('home')" class="text-white font-medium hover:text-blue-300 transition duration-200">Home</a>
-      <a href="#" onclick="showSection('automation')" class="text-white font-medium hover:text-blue-300 transition duration-200">AI Automations</a>
-      <a href="#" onclick="showSection('stacks')" class="text-white font-medium hover:text-blue-300 transition duration-200">AI Stacks</a>
-    </div>
+<!-- Desktop Links as Buttons -->
+<div class="hidden md:flex space-x-4 items-center">
+  <button onclick="showSection('home')" class="bg-white text-blue-900 font-semibold py-2 px-4 rounded-md hover:bg-blue-100 transition duration-200">
+    Home
+  </button>
+  <button onclick="showSection('automation')" class="bg-white text-blue-900 font-semibold py-2 px-4 rounded-md hover:bg-blue-100 transition duration-200">
+    AI Automations
+  </button>
+  <button onclick="showSection('stacks')" class="bg-white text-blue-900 font-semibold py-2 px-4 rounded-md hover:bg-blue-100 transition duration-200">
+    AI Stacks
+  </button>
+</div>
 
     <!-- Hamburger Menu Button -->
     <div class="md:hidden">
@@ -71,13 +77,12 @@
     </div>
   </div>
 
-  <!-- Mobile Menu Dropdown -->
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 pt-2 space-y-3 bg-blue-950 bg-opacity-95 shadow-md">
-    <a href="#" onclick="showSection('home')" class="block text-white font-medium hover:text-blue-300 transition">Home</a>
-    <a href="#" onclick="showSection('automation')" class="block text-white font-medium hover:text-blue-300 transition">AI Automations</a>
-    <a href="#" onclick="showSection('stacks')" class="block text-white font-medium hover:text-blue-300 transition">AI Stacks</a>
-  </div>
-</nav>
+<!-- Mobile Menu as Buttons -->
+<div id="mobile-menu" class="hidden md:hidden px-6 pb-4 pt-2 space-y-3 bg-blue-950 bg-opacity-95 shadow-md">
+  <button onclick="showSection('home')" class="block w-full text-left bg-white text-blue-900 font-semibold py-2 px-4 rounded-md hover:bg-blue-100 transition">Home</button>
+  <button onclick="showSection('automation')" class="block w-full text-left bg-white text-blue-900 font-semibold py-2 px-4 rounded-md hover:bg-blue-100 transition">AI Automations</button>
+  <button onclick="showSection('stacks')" class="block w-full text-left bg-white text-blue-900 font-semibold py-2 px-4 rounded-md hover:bg-blue-100 transition">AI Stacks</button>
+</div>
 
 <!-- HERO SECTION -->
 <div id="home" class="active-section content-wrap text-center py-24 px-6 bg-gradient-to-r from-blue-900 to-blue-600 text-white min-h-screen flex flex-col justify-center items-center">
