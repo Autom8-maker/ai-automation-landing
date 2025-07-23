@@ -2,146 +2,248 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Business Stacks | Allen Collective</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Allen Collective Enterprises | AI Solutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Styles remain unchanged */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #f1f5f9; color: #1f2937; }
-    header {
-      background: linear-gradient(to right, #0f172a, #1d4ed8);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      background-image: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d3?auto=format&fit=crop&w=1650&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      position: relative;
-      transition: background-size 0.5s ease;
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1f2937; }
+
+    .section { display: none; }
+    .active-section { display: block; animation: fadeIn 0.6s ease forwards; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    header:hover { background-size: 105%; }
-    header::before {
-      content: ''; position: absolute; inset: 0; background: rgba(15, 23, 42, 0.7);
+    .button {
+      @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300;
     }
-    header > * { position: relative; z-index: 1; }
-    header h1 { font-size: 2.8rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; opacity: 0.95; }
-    .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
-    section { margin-bottom: 60px; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease forwards; animation-delay: 0.2s; }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-    h2 { font-size: 2rem; color: #1d4ed8; border-left: 6px solid #1d4ed8; padding-left: 15px; margin-bottom: 20px; }
-    ul { list-style: none; padding-left: 0; }
-    li { padding: 10px 0; }
-    li strong { color: #0f172a; }
-    table {
-      width: 100%; border-collapse: collapse; margin-top: 20px;
-      background-color: white; border-radius: 10px;
-      overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    th, td { padding: 20px; text-align: left; border-bottom: 1px solid #e2e8f0; }
-    th { background-color: #eff6ff; color: #1e3a8a; font-weight: 600; white-space: nowrap; }
-    tr:last-child td { border-bottom: none; }
-    .cta {
-      background: linear-gradient(to right, #1d4ed8, #3b82f6); color: white;
-      padding: 50px; text-align: center; border-radius: 12px;
-      font-size: 1.4rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-    .cta:hover { transform: translateY(-5px); }
     .branding {
-      text-align: center; padding: 30px 0;
-      font-weight: 600; color: #64748b; font-size: 0.95rem;
+      text-align: center;
+      padding: 30px 0;
+      font-weight: 600;
+      color: #64748b;
+      font-size: 0.95rem;
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Custom AI Business Stacks</h1>
-    <p>We build done-for-you AI agents, automations, and smart systems tailored to your business.</p>
-  </header>
+<body class="bg-slate-50">
 
-  <div class="container">
-    <section>
-      <h2>What’s Included</h2>
-      <p>We package everything you need to streamline operations using AI. Each AI Business Stack includes tailored automation workflows, smart chatbots or agents, and seamless integrations using Zapier, Activepieces, or n8n — no tech skills needed.</p>
+  <!-- HOME PAGE -->
+  <div id="home" class="active-section text-center py-24 px-6 bg-gradient-to-r from-blue-900 to-blue-600 text-white min-h-screen flex flex-col justify-center items-center">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4">Allen Collective Enterprises</h1>
+    <p class="text-lg sm:text-xl mb-8 max-w-xl">AI-Powered Systems. Scalable Automations. Intelligent Agents. All done-for-you.</p>
+    <div class="space-x-4">
+      <button onclick="showSection('automation')" class="button">Explore AI Automations</button>
+      <button onclick="showSection('stacks')" class="button">Explore AI Stacks</button>
+    </div>
+  </div>
+
+  <!-- AUTOMATION PAGE -->
+  <div id="automation" class="section container mx-auto py-16 px-6 max-w-5xl">
+    <h2 class="text-3xl font-bold text-blue-700 mb-4">Done-For-You AI Automation</h2>
+    <p class="text-lg mb-6">Automate repetitive tasks and scale your operations with smart, personalized workflows.</p>
+    <section class="mb-8">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Our Offer</h3>
+      <p>From client onboarding and scheduling to document collection and email follow-ups, we automate your business's most time-consuming processes using tools like Zapier, Activepieces, and n8n.</p>
     </section>
-
-    <section>
-      <h2>Stack Benefits</h2>
-      <ul>
-        <li>🤖 AI agent setup for scheduling, lead response, and task delegation</li>
-        <li>📂 Smart forms, document collection, and CRM integration</li>
-        <li>⚙️ Automate repeat tasks like follow-ups, emails, and client intake</li>
-        <li>🔐 Secure cloud portals, logic-based routing, and reminders</li>
-        <li>🧰 Fully done-for-you — we build, test, and support your stack</li>
+    <section class="mb-8">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Benefits</h3>
+      <ul class="list-disc ml-6">
+        <li>Save 10+ hours weekly with streamlined operations</li>
+        <li>Automate everything from intake forms to file uploads</li>
+        <li>Reduce costly errors with consistent, rule-based workflows</li>
+        <li>AI-powered logic ensures every task runs smoothly</li>
+        <li>Done-for-you setup — no tech background required</li>
       </ul>
     </section>
-
-    <section>
-      <h2>Industries We Serve</h2>
-      <ul>
-        <li>✅ Bookkeeping & Tax Professionals</li>
-        <li>🏡 Real Estate Teams & Wholesalers</li>
-        <li>🩺 Independent Medical & Wellness Clinics</li>
-        <li>🔧 Local Service Providers (HVAC, Electrical, etc.)</li>
-        <li>⚖️ Small Law Firms & Solo Attorneys</li>
+    <section class="mb-8">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Who We Serve</h3>
+      <ul class="list-disc ml-6">
+        <li>Bookkeepers & Tax Professionals</li>
+        <li>Real Estate Teams</li>
+        <li>Medical & Wellness Practices</li>
+        <li>Home Service Providers</li>
+        <li>Law Firms & Solo Attorneys</li>
       </ul>
     </section>
-
-    <section>
-      <h2>AI Stack Packages</h2>
-      <table>
-        <tr>
-          <th>Tier</th>
-          <th>Platform</th>
-          <th>Stack Includes</th>
-          <th>Ideal For</th>
-          <th>Pricing</th>
-        </tr>
-        <tr>
-          <td><strong>Starter Stack</strong></td>
-          <td>Zapier</td>
-          <td><ul><li>Basic AI agent (text/email)</li><li>2–5 Zaps</li><li>Form + CRM setup</li><li>Email automations</li></ul></td>
-          <td>Solopreneurs, Coaches</td>
-          <td><strong>$250–$500</strong> setup<br><strong>$50–$100/mo</strong> support</td>
-        </tr>
-        <tr>
-          <td><strong>Growth Stack</strong></td>
-          <td>Activepieces</td>
-          <td><ul><li>Smart chatbot or AI agent</li><li>3–8 flows</li><li>File uploads + CRM logic</li><li>Monthly reports</li></ul></td>
-          <td>Growing firms, agencies</td>
-          <td><strong>$500–$1,000</strong> setup<br><strong>$150–$300/mo</strong> support</td>
-        </tr>
-        <tr>
-          <td><strong>Pro Stack</strong></td>
-          <td>n8n</td>
-          <td><ul><li>Custom GPT AI agent</li><li>Unlimited workflows</li><li>API/db integrations</li><li>Client portals & support</li></ul></td>
-          <td>Established companies</td>
-          <td><strong>$1,500–$5,000+</strong> setup<br><strong>$400–$1,000+/mo</strong> retainer</td>
-        </tr>
-      </table>
+    <section class="mb-8">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Pricing Plans</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white shadow-md rounded-lg overflow-hidden text-sm">
+          <thead class="bg-blue-100 text-blue-800 font-semibold">
+            <tr>
+              <th class="p-4">Tier</th>
+              <th class="p-4">Platform</th>
+              <th class="p-4">Target Client</th>
+              <th class="p-4">Use Cases</th>
+              <th class="p-4">Price</th>
+              <th class="p-4">Deliverables</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="p-4 font-bold">Starter</td>
+              <td class="p-4">Zapier</td>
+              <td class="p-4">Small businesses, solopreneurs</td>
+              <td class="p-4">Lead capture, CRM updates, email automation</td>
+              <td class="p-4">$250–$500 setup<br>$50–$100/mo</td>
+              <td class="p-4">
+                <ul class="list-disc ml-4">
+                  <li>2–5 Zaps</li>
+                  <li>Up to 3 apps</li>
+                  <li>Basic logic</li>
+                  <li>Email support</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-4 font-bold">Growth</td>
+              <td class="p-4">Activepieces</td>
+              <td class="p-4">Growing businesses, agencies</td>
+              <td class="p-4">Form processing, task handoffs</td>
+              <td class="p-4">$500–$1,000 setup<br>$150–$300/mo</td>
+              <td class="p-4">
+                <ul class="list-disc ml-4">
+                  <li>3–8 flows</li>
+                  <li>3–6 apps</li>
+                  <li>File handling</li>
+                  <li>Monthly reporting</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold">Custom Pro</td>
+              <td class="p-4">n8n</td>
+              <td class="p-4">Mid-size+ companies</td>
+              <td class="p-4">Onboarding systems, real estate scrapers</td>
+              <td class="p-4">$1,500–$5,000+ setup<br>$400–$1,000+/mo</td>
+              <td class="p-4">
+                <ul class="list-disc ml-4">
+                  <li>Custom workflows</li>
+                  <li>API integrations</li>
+                  <li>Secure file uploads</li>
+                  <li>On-call support</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
-
-    <section>
-      <h2>Add-On Features</h2>
-      <ul>
-        <li>🌐 Branded AI client portal: <strong>+$100</strong></li>
-        <li>💬 Live agent handoff & AI fallback: <strong>+$250–$500</strong></li>
-        <li>⚡ Priority fixes & concierge support: <strong>+$100/mo</strong></li>
+    <section class="mb-8">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Optional Add-Ons</h3>
+      <ul class="list-disc ml-6">
+        <li>Custom-branded upload portal: +$100</li>
+        <li>AI chatbot integration: +$250–$500</li>
+        <li>Emergency support & fast-track fixes: +$100/mo</li>
       </ul>
     </section>
+    <div class="text-center mt-10">
+      <p class="text-lg">Ready to reclaim your time? Text <strong>“AUTOMATE”</strong> to <strong>(863) 738-4441</strong></p>
+    </div>
+  </div>
 
-    <div class="cta">
-      <p>Want your own AI stack? Text <strong>“STACK”</strong> to <strong>(863) 738-4441</strong> to get started.</p>
+  <!-- STACKS PAGE -->
+  <div id="stacks" class="section container mx-auto py-16 px-6 max-w-5xl">
+    <h2 class="text-3xl font-bold text-blue-700 mb-4">Custom AI Business Stacks</h2>
+    <p class="text-lg mb-6">We build done-for-you AI agents, automations, and smart systems tailored to your business.</p>
+    <section class="mb-8">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">What's Included</h3>
+      <p>Each stack includes automation workflows, AI chatbots or agents, and seamless integrations using Zapier, Activepieces, or n8n — no tech skills needed.</p>
+    </section>
+    <section class="mb-8">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Stack Benefits</h3>
+      <ul class="list-disc ml-6">
+        <li>AI agent setup for scheduling, lead response, and task delegation</li>
+        <li>Smart forms, document collection, and CRM integration</li>
+        <li>Automate repeat tasks like follow-ups, emails, and client intake</li>
+        <li>Secure cloud portals, logic-based routing, and reminders</li>
+        <li>Fully done-for-you — we build, test, and support your stack</li>
+      </ul>
+    </section>
+    <section class="mb-8">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">AI Stack Packages</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white shadow-md rounded-lg overflow-hidden text-sm">
+          <thead class="bg-blue-100 text-blue-800 font-semibold">
+            <tr>
+              <th class="p-4">Tier</th>
+              <th class="p-4">Platform</th>
+              <th class="p-4">Stack Includes</th>
+              <th class="p-4">Ideal For</th>
+              <th class="p-4">Pricing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="p-4 font-bold">Starter Stack</td>
+              <td class="p-4">Zapier</td>
+              <td class="p-4">
+                <ul class="list-disc ml-4">
+                  <li>Basic AI agent (text/email)</li>
+                  <li>2–5 Zaps</li>
+                  <li>Form + CRM setup</li>
+                </ul>
+              </td>
+              <td class="p-4">Solopreneurs, Coaches</td>
+              <td class="p-4">$250–$500 setup<br>$50–$100/mo</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-4 font-bold">Growth Stack</td>
+              <td class="p-4">Activepieces</td>
+              <td class="p-4">
+                <ul class="list-disc ml-4">
+                  <li>Smart chatbot or AI agent</li>
+                  <li>3–8 flows</li>
+                  <li>CRM logic + monthly reports</li>
+                </ul>
+              </td>
+              <td class="p-4">Growing Firms, Agencies</td>
+              <td class="p-4">$500–$1,000 setup<br>$150–$300/mo</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold">Pro Stack</td>
+              <td class="p-4">n8n</td>
+              <td class="p-4">
+                <ul class="list-disc ml-4">
+                  <li>GPT-powered AI agent</li>
+                  <li>Unlimited workflows</li>
+                  <li>API/db integrations</li>
+                </ul>
+              </td>
+              <td class="p-4">Established Companies</td>
+              <td class="p-4">$1,500–$5,000+ setup<br>$400–$1,000+/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="mb-8">
+      <h3 class="text-2xl font-semibold text-blue-600 mb-2">Add-On Features</h3>
+      <ul class="list-disc ml-6">
+        <li>Branded AI client portal: +$100</li>
+        <li>Live agent handoff & fallback: +$250–$500</li>
+        <li>Priority support: +$100/mo</li>
+      </ul>
+    </section>
+    <div class="text-center mt-10">
+      <p class="text-lg">Want your own AI stack? Text <strong>“STACK”</strong> to <strong>(863) 738-4441</strong></p>
     </div>
   </div>
 
   <footer class="branding">
     &copy; 2025 Allen Collective Enterprises LLC. All rights reserved.
   </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section, #home').forEach(sec => sec.classList.remove('active-section'));
+      document.getElementById(id).classList.add('active-section');
+      window.scrollTo(0, 0);
+    }
+  </script>
 </body>
 </html>
-
-
