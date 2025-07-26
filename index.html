@@ -17,14 +17,16 @@
       font-size: 0.95rem;
     }
     .stack-summary {
-      transition: max-height 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
       overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: scaleY(0.95);
     }
     .stack-summary.open {
-      max-height: 1000px;
-    }
-    .stack-summary.closed {
-      max-height: 0;
+      max-height: 500px;
+      opacity: 1;
+      transform: scaleY(1);
     }
   </style>
 </head>
@@ -64,10 +66,10 @@
 </section>
 
 <!-- STACK SUMMARY SECTION -->
-<section id="stack-summary" class="stack-summary closed bg-gray-100 transition-all px-6 py-10 max-w-5xl mx-auto mt-6 rounded-lg shadow-inner">
+<div id="stack-summary" class="stack-summary bg-gray-100 transition-all px-6 py-10 max-w-5xl mx-auto mt-6 rounded-lg shadow-inner">
   <h3 class="text-2xl font-semibold mb-4 text-blue-700">Your Selected Stack</h3>
   <ul id="selected-items" class="list-disc ml-6 space-y-1 text-gray-700"></ul>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer class="branding">
@@ -132,7 +134,6 @@
   function toggleStackSummary() {
     const summary = document.getElementById("stack-summary");
     summary.classList.toggle("open");
-    summary.classList.toggle("closed");
   }
 
   document.addEventListener("DOMContentLoaded", () => {
