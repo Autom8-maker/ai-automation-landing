@@ -24,7 +24,7 @@
       transform: scaleY(0.95);
     }
     .stack-summary.open {
-      max-height: 500px;
+      max-height: 300px;
       opacity: 1;
       transform: scaleY(1);
     }
@@ -66,9 +66,9 @@
 </section>
 
 <!-- STACK SUMMARY SECTION -->
-<div id="stack-summary" class="stack-summary bg-gray-100 transition-all px-6 py-10 max-w-5xl mx-auto mt-6 rounded-lg shadow-inner">
-  <h3 class="text-2xl font-semibold mb-4 text-blue-700">Your Selected Stack</h3>
-  <ul id="selected-items" class="list-disc ml-6 space-y-1 text-gray-700"></ul>
+<div id="stack-summary" class="stack-summary bg-gray-100 transition-all px-6 py-6 max-w-md fixed bottom-24 right-6 z-50 rounded-lg shadow-lg">
+  <h3 class="text-xl font-semibold mb-3 text-blue-700">Your Selected Stack</h3>
+  <ul id="selected-items" class="space-y-2 text-gray-700"></ul>
 </div>
 
 <!-- FOOTER -->
@@ -126,9 +126,19 @@
     list.innerHTML = "";
     selected.forEach(item => {
       const li = document.createElement("li");
-      li.textContent = item;
+      li.className = "flex justify-between items-center bg-white p-2 rounded shadow";
+      li.innerHTML = `
+        <span>${item}</span>
+        <button onclick="removeFromStack('${item}')" class="text-red-600 text-sm font-semibold hover:underline">Remove</button>
+      `;
       list.appendChild(li);
     });
+  }
+
+  function removeFromStack(item) {
+    selected.delete(item);
+    renderOptions();
+    renderStackSummary();
   }
 
   function toggleStackSummary() {
