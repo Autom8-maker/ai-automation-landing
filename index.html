@@ -3,33 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>STACKD | Allen Collective Enterprises</title>
+  <title>STACKED | AI Business Systems</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1f2937; }
-    .section { display: none; }
-    .active-section { display: block; animation: fadeIn 0.6s ease forwards; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
     .button {
-      @apply bg-white text-blue-700 border border-blue-700 hover:bg-blue-600 hover:text-white font-semibold py-3 px-6 rounded-lg shadow transition duration-300;
+      @apply bg-blue-700 text-white hover:bg-blue-600 font-semibold py-3 px-6 rounded-lg shadow transition duration-300;
     }
-    nav {
-      @apply w-full fixed top-0 left-0 z-50 bg-blue-900 bg-opacity-90 backdrop-blur-md transition-transform duration-300;
+    header {
+      @apply fixed top-0 left-0 w-full bg-blue-900 bg-opacity-90 backdrop-blur-md shadow-md z-50;
     }
-    nav .nav-container {
-      @apply max-w-7xl mx-auto px-4 py-4 flex justify-between items-center;
-    }
-    nav a {
-      @apply text-white font-medium hover:text-blue-200 transition;
-    }
-    .nav-links {
-      @apply flex space-x-6;
-    }
+    .content-wrap { padding-top: 80px; }
     .branding {
       text-align: center;
       padding: 30px 0;
@@ -41,49 +27,40 @@
 </head>
 <body class="bg-slate-50">
 
-<!-- NAVBAR -->
-<nav id="navbar">
-  <div class="nav-container">
-    <div class="text-white text-xl font-bold">STACKD</div>
-    <div class="hidden md:flex nav-links">
-      <a href="#home">Home</a>
-      <a href="#pricing">Pricing</a>
-    </div>
-    <div class="md:hidden">
-      <button id="menu-toggle" class="text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
+<!-- HEADER -->
+<header>
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="text-white text-xl font-bold tracking-wide">STACKED</div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 bg-blue-900 bg-opacity-95">
-    <a href="#home" class="block text-white">Home</a>
-    <a href="#pricing" class="block text-white">Pricing</a>
-  </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section id="home" class="content-wrap text-center py-32 px-6 bg-gradient-to-r from-blue-900 to-blue-600 text-white min-h-screen flex flex-col justify-center items-center">
-  <h1 class="text-5xl sm:text-6xl font-bold mb-4">STACKD</h1>
-  <p class="text-lg sm:text-xl mb-8 max-w-2xl">The complete AI business system — agents, automations, integrations. All done-for-you.</p>
-  <button onclick="document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })" class="button">Learn More</button>
+<!-- HERO SECTION -->
+<section class="content-wrap text-center py-24 px-6 bg-gradient-to-r from-blue-900 to-blue-600 text-white min-h-screen flex flex-col justify-center items-center">
+  <h1 class="text-5xl font-bold mb-4">AI Business Systems. Done For You.</h1>
+  <p class="text-xl mb-8 max-w-2xl">Stacked builds intelligent, automated, and scalable AI-powered systems customized for your business needs.</p>
+  <a href="#stack-info" class="button">Learn More</a>
 </section>
 
-<!-- PRICING -->
-<section id="pricing" class="container mx-auto py-20 px-6 max-w-5xl">
-  <h2 class="text-3xl font-bold text-blue-700 mb-4 text-center">STACKD Plans</h2>
-  <p class="text-center text-lg mb-8">Choose the right stack for your business size and complexity. All include AI agents, workflow automations, and integrations.</p>
+<!-- STACK INFO SECTION -->
+<section id="stack-info" class="container mx-auto py-16 px-6 max-w-5xl">
+  <h2 class="text-3xl font-bold text-blue-700 mb-4">What You Get</h2>
+  <ul class="list-disc ml-6 space-y-2 text-lg">
+    <li>AI assistant agents for scheduling, intake, and messaging</li>
+    <li>End-to-end automation workflows for repetitive tasks</li>
+    <li>Integrated smart forms and CRM sync</li>
+    <li>Secure file handling and logic-based routing</li>
+    <li>Full setup, testing, and support included</li>
+  </ul>
 
+  <h2 class="text-3xl font-bold text-blue-700 mt-10 mb-4">Packages</h2>
   <div class="overflow-x-auto">
     <table class="w-full bg-white shadow-md rounded-lg overflow-hidden text-sm">
       <thead class="bg-blue-100 text-blue-800 font-semibold">
         <tr>
-          <th class="p-4">Plan</th>
-          <th class="p-4">Tools</th>
+          <th class="p-4">Tier</th>
+          <th class="p-4">Platform</th>
+          <th class="p-4">Stack Includes</th>
           <th class="p-4">Ideal For</th>
-          <th class="p-4">Includes</th>
           <th class="p-4">Pricing</th>
         </tr>
       </thead>
@@ -91,44 +68,55 @@
         <tr class="border-b">
           <td class="p-4 font-bold">Starter Stack</td>
           <td class="p-4">Zapier</td>
-          <td class="p-4">Solopreneurs & Coaches</td>
           <td class="p-4">
             <ul class="list-disc ml-4">
-              <li>Basic AI agent</li>
-              <li>2–5 Zaps</li>
-              <li>CRM + Forms</li>
+              <li>AI agent (email/text)</li>
+              <li>2–5 automations</li>
+              <li>Form + CRM setup</li>
             </ul>
           </td>
+          <td class="p-4">Solopreneurs, Coaches</td>
           <td class="p-4">$250–$500 setup<br>$50–$100/mo</td>
         </tr>
         <tr class="border-b">
           <td class="p-4 font-bold">Growth Stack</td>
           <td class="p-4">Activepieces</td>
-          <td class="p-4">Growing Businesses</td>
           <td class="p-4">
             <ul class="list-disc ml-4">
-              <li>Smart AI agent</li>
-              <li>3–8 workflows</li>
-              <li>Monthly reporting</li>
+              <li>Chatbot or AI agent</li>
+              <li>3–8 flows</li>
+              <li>CRM logic + reporting</li>
             </ul>
           </td>
+          <td class="p-4">Growing Firms, Agencies</td>
           <td class="p-4">$500–$1,000 setup<br>$150–$300/mo</td>
         </tr>
         <tr>
           <td class="p-4 font-bold">Pro Stack</td>
           <td class="p-4">n8n</td>
-          <td class="p-4">Mid-size & Enterprise</td>
           <td class="p-4">
             <ul class="list-disc ml-4">
-              <li>GPT-powered AI agent</li>
+              <li>GPT-powered agent</li>
               <li>Unlimited workflows</li>
-              <li>API & database integration</li>
+              <li>API/database integration</li>
             </ul>
           </td>
+          <td class="p-4">Established Companies</td>
           <td class="p-4">$1,500–$5,000+ setup<br>$400–$1,000+/mo</td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <h2 class="text-3xl font-bold text-blue-700 mt-10 mb-4">Add-Ons</h2>
+  <ul class="list-disc ml-6 space-y-2 text-lg">
+    <li>Branded AI client portal: +$100</li>
+    <li>Live agent fallback and escalation: +$250–$500</li>
+    <li>Priority support & fast-track fixes: +$100/mo</li>
+  </ul>
+
+  <div class="text-center mt-10">
+    <p class="text-lg">Have questions or ready to start? Text <strong>STACK</strong> to <strong>(863) 738-4441</strong></p>
   </div>
 </section>
 
@@ -136,23 +124,5 @@
 <footer class="branding">
   &copy; 2025 Allen Collective Enterprises LLC. All rights reserved.
 </footer>
-
-<!-- SCRIPTS -->
-<script>
-  document.getElementById('menu-toggle').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-  });
-  let lastScrollTop = 0;
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
-      navbar.style.transform = "translateY(-100%)";
-    } else {
-      navbar.style.transform = "translateY(0)";
-    }
-    lastScrollTop = scrollTop;
-  });
-</script>
 </body>
 </html>
