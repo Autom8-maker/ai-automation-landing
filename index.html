@@ -92,6 +92,7 @@
     <input id="user-name" type="text" placeholder="Your Name" class="w-full mb-2 px-3 py-2 border rounded-md text-sm">
     <input id="user-phone" type="text" placeholder="Phone Number" class="w-full mb-2 px-3 py-2 border rounded-md text-sm">
     <input id="user-email" type="email" placeholder="Email Address" class="w-full mb-2 px-3 py-2 border rounded-md text-sm">
+    <textarea id="user-notes" placeholder="Tell us more about what you need..." class="w-full px-3 py-2 border rounded-md text-sm"></textarea>
   </div>
   <h4 class="text-lg font-semibold mb-2 text-blue-700">Selected Stack:</h4>
   <ul id="selected-items" class="space-y-3 text-gray-800 mb-4"></ul>
@@ -180,11 +181,12 @@
     const name = document.getElementById("user-name").value.trim();
     const phone = document.getElementById("user-phone").value.trim();
     const email = document.getElementById("user-email").value.trim();
+    const notes = document.getElementById("user-notes").value.trim();
 
     const body = encodeURIComponent(
       `STACKD Submission\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nSelected Stack Components:\n` +
       Array.from(selected).map(item => `- ${item}`).join("\n") +
-      "\n\n-- Sent from STACKD website"
+      (notes ? `\n\nClient Notes:\n${notes}` : "")
     );
 
     const mailto = `mailto:lincolnallen19@gmail.com?subject=New AI Stack Submission&body=${body}`;
