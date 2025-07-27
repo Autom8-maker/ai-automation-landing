@@ -21,12 +21,14 @@
       overflow: hidden;
       max-height: 0;
       opacity: 0;
-      transform: scaleY(0.95);
+      transform: translateX(100%);
+      width: 100%;
+      max-width: 480px;
     }
     .stack-summary.open {
-      max-height: 700px;
+      max-height: 1000px;
       opacity: 1;
-      transform: scaleY(1);
+      transform: translateX(0);
     }
     #confirmation-popup {
       display: none;
@@ -84,10 +86,10 @@
 </section>
 
 <!-- STACK SUMMARY SECTION -->
-<div id="stack-summary" class="stack-summary bg-white border border-blue-200 px-6 py-6 max-w-lg fixed bottom-24 right-6 z-50 rounded-xl shadow-xl">
+<div id="stack-summary" class="stack-summary bg-white border border-blue-200 px-6 py-6 fixed bottom-24 right-0 z-50 rounded-l-xl shadow-xl">
   <h3 class="text-xl font-semibold mb-4 text-blue-800">Your Selected Stack</h3>
   <ul id="selected-items" class="space-y-3 text-gray-800"></ul>
-  <button onclick="sendEmail()" class="mt-4 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-2 rounded-md w-full transition">Submit Stack</button>
+  <button onclick="sendEmail()" class="mt-4 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-2 rounded-md w-full transition">Submit</button>
 </div>
 
 <div id="confirmation-popup">✅ Stack submitted successfully!</div>
@@ -177,6 +179,9 @@
     const mailto = `mailto:lincolnallen19@gmail.com?subject=New AI Stack Submission&body=${body}`;
     window.location.href = mailto;
     showConfirmation();
+
+    // Auto-close stack view
+    document.getElementById("stack-summary").classList.remove("open");
   }
 
   function showConfirmation() {
