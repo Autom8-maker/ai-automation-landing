@@ -23,7 +23,7 @@
       opacity: 0;
       transform: translateX(100%);
       width: 100%;
-      max-width: 480px;
+      max-width: 520px;
     }
     .stack-summary.open {
       max-height: 1000px;
@@ -182,15 +182,14 @@
     const email = document.getElementById("user-email").value.trim();
 
     const body = encodeURIComponent(
-      `Name: ${name}%0D%0APhone: ${phone}%0D%0AEmail: ${email}%0D%0A%0D%0ASelected Stack:%0D%0A` +
-      Array.from(selected).map(item => `- ${item}`).join("%0D%0A") +
-      "%0D%0A%0D%0A-- Sent from STACKD website"
+      `STACKD Submission\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nSelected Stack Components:\n` +
+      Array.from(selected).map(item => `- ${item}`).join("\n") +
+      "\n\n-- Sent from STACKD website"
     );
 
     const mailto = `mailto:lincolnallen19@gmail.com?subject=New AI Stack Submission&body=${body}`;
     window.location.href = mailto;
     showConfirmation();
-
     document.getElementById("stack-summary").classList.remove("open");
   }
 
