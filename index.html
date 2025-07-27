@@ -106,7 +106,105 @@
 </footer>
 
 <script>
-  // All script stays unchanged
+  const stackOptions = [
+    { name: "Website Chatbot", desc: "24/7 assistant for lead capture", useCase: "Captures leads and FAQs on your website." },
+    { name: "Voice AI Agent", desc: "Answers and places calls", useCase: "Handles phone calls and follow-ups." },
+    { name: "CRM Creation & Integration", desc: "Build and connect your CRM", useCase: "Custom-built or connected CRM solutions." },
+    { name: "Branded Client Portal", desc: "Client dashboard with access", useCase: "Clients log in and view files or progress." },
+    { name: "Curated Website", desc: "Professional, optimized site", useCase: "SEO-optimized, AI-enhanced web presence." },
+    { name: "Appointment Scheduler Bot", desc: "Automates client bookings", useCase: "Syncs to your calendar and allows 24/7 scheduling." },
+    { name: "Workflow Integration – Starter", desc: "3 core automations", useCase: "Simple repetitive task automation." },
+    { name: "Workflow Integration – Enhanced", desc: "6+ flows and logic", useCase: "Handles layered workflows and automations." },
+    { name: "Workflow Integration – Premium", desc: "Fully tailored stack", useCase: "API, database, and custom systems." }
+  ];
+
+  const selected = new Set();
+
+  function renderOptions() {
+    const container = document.getElementById("stack-options");
+    container.innerHTML = "";
+
+    stackOptions.forEach(item => {
+      const card = document.createElement("div");
+      card.className = `border rounded-lg p-4 shadow hover:shadow-lg transition ${selected.has(item.name) ? 'border-blue-600 bg-blue-50' : 'border-gray-300 bg-white'}`;
+
+      card.innerHTML = `
+        <h3 class="text-xl font-semibold mb-1">${item.name}</h3>
+        <p class="text-sm text-gray-600 mb-2">${item.desc}</p>
+        <p class="text-xs text-gray-500 italic mb-4">${item.useCase}</p>
+        <button class="mt-2 px-4 py-2 text-sm rounded border font-semibold transition ${selected.has(item.name) ? 'bg-blue-700 text-white border-blue-700 hover:bg-blue-800' : 'text-blue-700 border-blue-700 hover:bg-blue-50'}">
+          ${selected.has(item.name) ? '✔ Added to Stack' : 'Add to Stack'}
+        </button>
+      `;
+
+      card.querySelector("button").addEventListener("click", () => {
+        if (selected.has(item.name)) {
+          selected.delete(item.name);
+        } else {
+          selected.add(item.name);
+        }
+        renderOptions();
+        renderStackSummary();
+      });
+
+      container.appendChild(card);
+    });
+  }
+
+  function renderStackSummary() {
+    const list = document.getElementById("selected-items");
+    list.innerHTML = "";
+    selected.forEach(item => {
+      const li = document.createElement("li");
+      li.className = "flex justify-between items-center bg-slate-50 p-3 rounded-md border border-gray-200 shadow-sm";
+      li.innerHTML = `
+        <span class="font-medium">${item}</span>
+        <button onclick="removeFromStack('${item}')" class="text-red-600 text-xs border border-red-600 px-2 py-1 rounded hover:bg-red-100 transition">Remove</button>
+      `;
+      list.appendChild(li);
+    });
+  }
+
+  function removeFromStack(item) {
+    selected.delete(item);
+    renderOptions();
+    renderStackSummary();
+  }
+
+  function toggleStackSummary() {
+    const summary = document.getElementById("stack-summary");
+    summary.classList.toggle("open");
+  }
+
+  function sendEmail() {
+    const name = document.getElementById("user-name").value.trim();
+    const phone = document.getElementById("user-phone").value.trim();
+    const email = document.getElementById("user-email").value.trim();
+
+    const body = encodeURIComponent(
+      `Name: ${name}%0D%0APhone: ${phone}%0D%0AEmail: ${email}%0D%0A%0D%0ASelected Stack:%0D%0A` +
+      Array.from(selected).map(item => `- ${item}`).join("%0D%0A") +
+      "%0D%0A%0D%0A-- Sent from STACKD website"
+    );
+
+    const mailto = `mailto:lincolnallen19@gmail.com?subject=New AI Stack Submission&body=${body}`;
+    window.location.href = mailto;
+    showConfirmation();
+
+    document.getElementById("stack-summary").classList.remove("open");
+  }
+
+  function showConfirmation() {
+    const popup = document.getElementById("confirmation-popup");
+    popup.style.display = "block";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 3000);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    renderOptions();
+  });
 </script>
 </body>
 </html>
