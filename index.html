@@ -89,7 +89,12 @@
 <div id="stack-summary" class="stack-summary bg-white border border-blue-200 px-6 py-6 fixed bottom-24 right-0 z-50 rounded-l-xl shadow-xl">
   <h3 class="text-xl font-semibold mb-4 text-blue-800">Your Selected Stack</h3>
   <ul id="selected-items" class="space-y-3 text-gray-800"></ul>
-  <button onclick="sendEmail()" class="mt-4 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-2 rounded-md w-full transition">Submit</button>
+  <div class="mt-4">
+    <input id="user-name" type="text" placeholder="Your Name" class="w-full mb-2 px-3 py-2 border rounded-md text-sm">
+    <input id="user-phone" type="text" placeholder="Phone Number" class="w-full mb-2 px-3 py-2 border rounded-md text-sm">
+    <input id="user-email" type="email" placeholder="Email Address" class="w-full mb-2 px-3 py-2 border rounded-md text-sm">
+    <button onclick="sendEmail()" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-2 rounded-md w-full transition">Submit</button>
+  </div>
 </div>
 
 <div id="confirmation-popup">✅ Stack submitted successfully!</div>
@@ -171,16 +176,18 @@
   }
 
   function sendEmail() {
+    const name = document.getElementById("user-name").value.trim();
+    const phone = document.getElementById("user-phone").value.trim();
+    const email = document.getElementById("user-email").value.trim();
+    const items = Array.from(selected).map(item => `- ${item}`).join("%0D%0A");
+
     const body = encodeURIComponent(
-      "Hi Lincoln,%0D%0A%0D%0AHere's the selected AI stack:%0D%0A%0D%0A" +
-      Array.from(selected).map(item => `- ${item}`).join("%0D%0A") +
-      "%0D%0A%0D%0A-- Sent from STACKD website"
+      `Hi Lincoln,%0D%0A%0D%0AHere's a new AI stack submission:%0D%0A%0D%0AName: ${name}%0D%0APhone: ${phone}%0D%0AEmail: ${email}%0D%0A%0D%0AStack Items:%0D%0A${items}%0D%0A%0D%0A-- Sent from STACKD website`
     );
+
     const mailto = `mailto:lincolnallen19@gmail.com?subject=New AI Stack Submission&body=${body}`;
     window.location.href = mailto;
     showConfirmation();
-
-    // Auto-close stack view
     document.getElementById("stack-summary").classList.remove("open");
   }
 
