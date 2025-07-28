@@ -107,19 +107,68 @@
 </footer>
 
 <script>
-  const stackOptions = [
-    { name: "Website Chatbot", desc: "24/7 assistant for lead capture", useCase: "Captures leads and FAQs on your website." },
-    { name: "Voice AI Agent", desc: "Answers and places calls", useCase: "Handles phone calls and follow-ups." },
-    { name: "CRM Creation & Integration", desc: "Build and connect your CRM", useCase: "Custom-built or connected CRM solutions." },
-    { name: "Branded Client Portal", desc: "Client dashboard with access", useCase: "Clients log in and view files or progress." },
-    { name: "Curated Website", desc: "Professional, optimized site", useCase: "SEO-optimized, AI-enhanced web presence." },
-    { name: "Appointment Scheduler Bot", desc: "Automates client bookings", useCase: "Syncs to your calendar and allows 24/7 scheduling." },
-    { name: "Workflow Integration – Starter", desc: "3 core automations", useCase: "Simple repetitive task automation." },
-    { name: "Workflow Integration – Enhanced", desc: "6+ flows and logic", useCase: "Handles layered workflows and automations." },
-    { name: "Workflow Integration – Premium", desc: "Fully tailored stack", useCase: "API, database, and custom systems." }
-    { name: "AI Agent Mode", desc: "24/7 intelligent assistant", useCase: "Conversational replies, lead handling, bookings, and workflow automation." }
-
-  ];
+const stackOptions = [
+  {
+    name: "Website Chatbot",
+    desc: "Lead-capturing site assistant",
+    useCase: "Captures FAQs and leads. Requires ChatGPT Plus."
+  },
+  {
+    name: "Voice AI Agent",
+    desc: "AI agent for calls",
+    useCase: "Handles calls and follow-ups. Requires ChatGPT Plus."
+  },
+  {
+    name: "CRM Creation & Integration",
+    desc: "Build + sync CRM",
+    useCase: "Custom CRM with optional AI. ChatGPT Plus needed for smart logic."
+  },
+  {
+    name: "Branded Client Portal",
+    desc: "Client access dashboard",
+    useCase: "Clients track progress. AI features require ChatGPT Plus."
+  },
+  {
+    name: "Curated Website",
+    desc: "Optimized business site",
+    useCase: "SEO-optimized presence. AI features need ChatGPT Plus."
+  },
+  {
+    name: "Appointment Scheduler Bot",
+    desc: "Automated booking flow",
+    useCase: "Syncs with calendar. AI requires ChatGPT Plus."
+  },
+  {
+    name: "Workflow Integration – Starter",
+    desc: "3 basic automations",
+    useCase: "Streamlines tasks. AI logic requires ChatGPT Plus."
+  },
+  {
+    name: "Workflow Integration – Enhanced",
+    desc: "6+ logic workflows",
+    useCase: "Handles advanced flows. AI triggers require ChatGPT Plus."
+  },
+  {
+    name: "Workflow Integration – Premium",
+    desc: "Fully custom automation stack",
+    useCase: "API, database & full control. AI agents need ChatGPT Plus."
+  },
+  {
+    name: "AI Agent Mode – Full-Time",
+    desc: "24/7 autonomous assistant",
+    useCase: "Runs full workflows, lead replies, scheduling. Needs ChatGPT Plus. Up to 40 chats/3 hrs."
+  },
+  {
+    name: "AI Agent Mode – Part-Time",
+    desc: "Business-hours assistant",
+    useCase: "Handles bookings & leads mid-day. Requires ChatGPT Plus. 15–25 chats/day."
+  },
+  {
+    name: "AI Agent Mode – Hourly",
+    desc: "On-demand agent",
+    useCase: "Short blocks or test cases. Needs ChatGPT Plus. 5–10 tasks/hr."
+  }
+];
 
   const selected = new Set();
 
