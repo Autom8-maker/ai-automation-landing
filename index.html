@@ -234,35 +234,41 @@ const stackOptions = [
     summary.classList.toggle("open");
   }
 
-  function sendEmail() {
-    const name = document.getElementById("user-name").value.trim();
-    const phone = document.getElementById("user-phone").value.trim();
-    const email = document.getElementById("user-email").value.trim();
-    const notes = document.getElementById("user-notes").value.trim();
+ function sendEmail() {
+  const name = document.getElementById("user-name").value.trim();
+  const phone = document.getElementById("user-phone").value.trim();
+  const email = document.getElementById("user-email").value.trim();
+  const notes = document.getElementById("user-notes").value.trim();
+  const stack = Array.from(selected);
 
-    const body = encodeURIComponent(
-      `STACKD Submission\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nSelected Stack Components:\n` +
-      Array.from(selected).map(item => `- ${item}`).join("\n") +
-      (notes ? `\n\nClient Notes:\n${notes}` : "")
-    );
+  const payload = {
+    name,
+    phone,
+    email,
+    notes,
+    stack
+  };
 
-    const mailto = `mailto:lincolnallen19@gmail.com?subject=New AI Stack Submission&body=${body}`;
-    window.location.href = mailto;
-    showConfirmation();
-    document.getElementById("stack-summary").classList.remove("open");
-  }
-
-  function showConfirmation() {
-    const popup = document.getElementById("confirmation-popup");
-    popup.style.display = "block";
-    setTimeout(() => {
-      popup.style.display = "none";
-    }, 3000);
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    renderOptions();
+  fetch("https://autom8tion.app.n8n.cloud/webhook/fcd8cfef-4ddb-495b-b7a6-00d2769a798a", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(res => {
+    if (res.ok) {
+      showConfirmation();
+      document.getElementById("stack-summary").classList.remove("open");
+    } else {
+      alert("There was a problem submitting your stack. Please try again.");
+    }
+  })
+  .catch(() => {
+    alert("Network error. Please try again.");
   });
+}
+
 </script>
 </body>
 </html>
