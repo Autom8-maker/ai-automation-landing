@@ -70,15 +70,15 @@
     <li>Full-service setup, testing, and optional ongoing support</li>
   </ul>
 
-<div class="text-center mt-10 px-4">
-  <p class="text-lg font-semibold">Looking for a tailored solution?</p>
-  <p class="text-lg font-medium">
-    Text <strong>STACKD</strong> to <strong>(863) 738-4441</strong>
-  </p>
-  <p class="text-sm text-gray-500 mt-4 max-w-md mx-auto">
-    This site is designed to explore what's possible with bespoke AI stacks. To see how it can work for your business, request a private demo tailored to your goals.
-  </p>
-</div>
+  <div class="text-center mt-10 px-4">
+    <p class="text-lg font-semibold">Looking for a tailored solution?</p>
+    <p class="text-lg font-medium">
+      Text <strong>STACKD</strong> to <strong>(863) 738-4441</strong>
+    </p>
+    <p class="text-sm text-gray-500 mt-4 max-w-md mx-auto">
+      This site is designed to explore what's possible with bespoke AI stacks. To see how it can work for your business, request a private demo tailored to your goals.
+    </p>
+  </div>
 
   <div class="fixed bottom-6 right-6 z-50">
     <button onclick="toggleStackSummary()" class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-3 rounded-lg shadow-md font-semibold transition">View Your Stack</button>
@@ -112,6 +112,7 @@
   &copy; 2025 Allen Collective Enterprises LLC. All rights reserved.
 </footer>
 
+<!-- SCRIPT MOVED HERE -->
 <script>
 const stackOptions = [
   {
@@ -176,84 +177,76 @@ const stackOptions = [
   }
 ];
 
-  const selected = new Set();
+const selected = new Set();
 
-  function renderOptions() {
-    const container = document.getElementById("stack-options");
-    container.innerHTML = "";
+function renderOptions() {
+  const container = document.getElementById("stack-options");
+  container.innerHTML = "";
 
-    stackOptions.forEach(item => {
-      const card = document.createElement("div");
-      card.className = `border rounded-lg p-4 shadow hover:shadow-lg transition ${selected.has(item.name) ? 'border-blue-600 bg-blue-50' : 'border-gray-300 bg-white'}`;
+  stackOptions.forEach(item => {
+    const card = document.createElement("div");
+    card.className = `border rounded-lg p-4 shadow hover:shadow-lg transition ${selected.has(item.name) ? 'border-blue-600 bg-blue-50' : 'border-gray-300 bg-white'}`;
 
-      card.innerHTML = `
-        <h3 class="text-xl font-semibold mb-1">${item.name}</h3>
-        <p class="text-sm text-gray-600 mb-2">${item.desc}</p>
-        <p class="text-xs text-gray-500 italic mb-4">${item.useCase}</p>
-        <button class="mt-2 px-4 py-2 text-sm rounded border font-semibold transition ${selected.has(item.name) ? 'bg-blue-700 text-white border-blue-700 hover:bg-blue-800' : 'text-blue-700 border-blue-700 hover:bg-blue-50'}">
-          ${selected.has(item.name) ? '✔ Added to Stack' : 'Add to Stack'}
-        </button>
-      `;
+    card.innerHTML = `
+      <h3 class="text-xl font-semibold mb-1">${item.name}</h3>
+      <p class="text-sm text-gray-600 mb-2">${item.desc}</p>
+      <p class="text-xs text-gray-500 italic mb-4">${item.useCase}</p>
+      <button class="mt-2 px-4 py-2 text-sm rounded border font-semibold transition ${selected.has(item.name) ? 'bg-blue-700 text-white border-blue-700 hover:bg-blue-800' : 'text-blue-700 border-blue-700 hover:bg-blue-50'}">
+        ${selected.has(item.name) ? '✔ Added to Stack' : 'Add to Stack'}
+      </button>
+    `;
 
-      card.querySelector("button").addEventListener("click", () => {
-        if (selected.has(item.name)) {
-          selected.delete(item.name);
-        } else {
-          selected.add(item.name);
-        }
-        renderOptions();
-        renderStackSummary();
-      });
-
-      container.appendChild(card);
+    card.querySelector("button").addEventListener("click", () => {
+      if (selected.has(item.name)) {
+        selected.delete(item.name);
+      } else {
+        selected.add(item.name);
+      }
+      renderOptions();
+      renderStackSummary();
     });
-  }
 
-  function renderStackSummary() {
-    const list = document.getElementById("selected-items");
-    list.innerHTML = "";
-    selected.forEach(item => {
-      const li = document.createElement("li");
-      li.className = "flex justify-between items-center bg-slate-50 p-3 rounded-md border border-gray-200 shadow-sm";
-      li.innerHTML = `
-        <span class="font-medium">${item}</span>
-        <button onclick="removeFromStack('${item}')" class="text-red-600 text-xs border border-red-600 px-2 py-1 rounded hover:bg-red-100 transition">Remove</button>
-      `;
-      list.appendChild(li);
-    });
-  }
+    container.appendChild(card);
+  });
+}
 
-  function removeFromStack(item) {
-    selected.delete(item);
-    renderOptions();
-    renderStackSummary();
-  }
+function renderStackSummary() {
+  const list = document.getElementById("selected-items");
+  list.innerHTML = "";
+  selected.forEach(item => {
+    const li = document.createElement("li");
+    li.className = "flex justify-between items-center bg-slate-50 p-3 rounded-md border border-gray-200 shadow-sm";
+    li.innerHTML = `
+      <span class="font-medium">${item}</span>
+      <button onclick="removeFromStack('${item}')" class="text-red-600 text-xs border border-red-600 px-2 py-1 rounded hover:bg-red-100 transition">Remove</button>
+    `;
+    list.appendChild(li);
+  });
+}
 
-  function toggleStackSummary() {
-    const summary = document.getElementById("stack-summary");
-    summary.classList.toggle("open");
-  }
+function removeFromStack(item) {
+  selected.delete(item);
+  renderOptions();
+  renderStackSummary();
+}
 
- function sendEmail() {
+function toggleStackSummary() {
+  const summary = document.getElementById("stack-summary");
+  summary.classList.toggle("open");
+}
+
+function sendEmail() {
   const name = document.getElementById("user-name").value.trim();
   const phone = document.getElementById("user-phone").value.trim();
   const email = document.getElementById("user-email").value.trim();
   const notes = document.getElementById("user-notes").value.trim();
   const stack = Array.from(selected);
 
-  const payload = {
-    name,
-    phone,
-    email,
-    notes,
-    stack
-  };
+  const payload = { name, phone, email, notes, stack };
 
   fetch("https://autom8tion.app.n8n.cloud/webhook/fcd8cfef-4ddb-495b-b7a6-00d2769a798a", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
   })
   .then(res => {
@@ -269,18 +262,17 @@ const stackOptions = [
   });
 }
 
-  ...
-  function showConfirmation() {
-    const popup = document.getElementById("confirmation-popup");
-    popup.style.display = "block";
-    setTimeout(() => {
-      popup.style.display = "none";
-    }, 3000);
-  }
+function showConfirmation() {
+  const popup = document.getElementById("confirmation-popup");
+  popup.style.display = "block";
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 3000);
+}
 
-  document.addEventListener("DOMContentLoaded", () => {
-    renderOptions();
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  renderOptions();
+});
 </script>
 </body>
 </html>
